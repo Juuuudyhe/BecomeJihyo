@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-title" content="">
+<meta name="theme-color" content="#B8DCEB">
+<title>Juuuudy's Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  :root {
+    --bg-primary: #0a0a0a;
+    --bg-card: #161616;
+    --bg-elevated: #1f1f1f;
+    --bg-border: #2a2a2a;
+    --text-primary: #fafafa;
+    --text-secondary: #a3a3a3;
+    --text-tertiary: #525252;
+    --accent: #ff3d00;
+    --accent-glow: #ff3d0033;
+    --success: #00e676;
+    --warning: #ffab00;
+    --period: #ff4081;
+    --rest: #6b6b6b;
+  }
+  
+  html, body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Noto Sans TC', sans-serif;
+    overscroll-behavior: none;
+    min-height: 100vh;
+  }
+  
+  body {
+    padding-bottom: 80px;
+  }
+  
+  /* === Header === */
+  .header {
+    background: linear-gradient(180deg, #1a1a1a 0%, var(--bg-primary) 100%);
+    padding: 24px 20px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--bg-border);
+  }
+  
+  .header-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header-title .accent {
+    color: var(--accent);
+  }
+  
+  .header-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+  
+  /* === Tabs === */
+  .tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    border-top: 1px solid var(--bg-border);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+    z-index: 100;
+  }
+  
+  .tab {
+    flex: 1;
+    padding: 8px 4px;
+    background: none;
+    border: none;
+    color: var(--text-tertiary);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .tab.active {
+    color: var(--accent);
+  }
+  
+  .tab-icon {
+    font-size: 20px;
+  }
+  
+  /* === Page Container === */
+  .page {
+    display: none;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .page.active {
+    display: block;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* === Day Selector === */
+  .day-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .day-btn {
+    padding: 12px 4px;
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .day-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+  
+  /* === Exercise Card === */
+  .exercise-card {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+  }
+  
+  .exercise-card.completed {
+    border-color: var(--success);
+    background: linear-gradient(135deg, #161616 0%, #00e6760a 100%);
+  }
+  
+  .exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  
+  .exercise-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+  }
+  
+  .exercise-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--accent-glow);
+    color: var(--accent);
+    font-size: 10px;
+    border-radius: 4px;
+    margin-left: 8px;
+    font-weight: 700;
+  }
+  
+  .exercise-target {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+  }
+  
+  .last-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--warning);
+    margin-bottom: 12px;
+    padding: 6px 10px;
+    background: #ffab0015;
+    border-radius: 6px;
+    display: inline-block;
+  }
+  
+  .last-time.empty {
+    color: var(--text-tertiary);
+    background: transparent;
+    padding: 0;
+  }
+  
+  /* === Input Group === */
+  .input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .input-label {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .input-field {
+    background: var(--bg-elevated);
+    border: 1px solid var(--bg-border);
+    border-radius: 8px;
+    padding: 10px;
+    color: var(--text-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .input-field:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  
+  /* === Feel Slider === */
+  .feel-row {
+    display: flex;
+    gap: 6px;
+    margin: 10px 0;
+  }
+  
+  .feel-btn {
+    flex: 1;
+    padding: 8px 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--bg-border);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  
+  .feel-btn.selected {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  
+  /* === Save Button === */
+  .save-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.2s;
+  }
+  
+  .save-btn:active {
+    transform: scale(0.98);
+  }
+  
+  .save-btn.done {
+    background: var(--success);
+    color: var(--bg-primary);
+  }
+  
+  /* === Progress Page === */
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .stat-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  
+  .stat-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+  }
+  
+  .stat-unit {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+  
+  .progress-chart {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .chart-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  
+  .chart-canvas {
+    width: 100%;
+    height: 120px;
+    background: var(--bg-elevated);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* === Diet Page === */
+  .diet-upload {
+    background: var(--bg-card);
+    border: 2px dashed var(--bg-border);
+    border-radius: 16px;
+    padding: 32px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 16px;
+  }
+  
+  .diet-upload:active {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+  }
+  
+  .diet-upload-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+  
+  .diet-upload-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  
+  #photoInput {
+    display: none;
+  }
+  
+  .diet-entry {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  
+  .diet-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .diet-meta {
+    padding: 12px;
+  }
+  
+  .diet-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+  }
+  
+  .diet-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  
+  .diet-tag {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .tag-meal {
+    background: #ff3d0020;
+    color: var(--accent);
+  }
+  
+  .tag-protein-low {
+    background: #ffab0020;
+    color: var(--warning);
+  }
+  
+  .tag-protein-ok {
+    background: #00e67620;
+    color: var(--success);
+  }
+  
+  .diet-note {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+  }
+  
+  .diet-tag-input {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .tag-toggle {
+    padding: 4px 10px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--bg-border);
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    color: var(--text-secondary);
+  }
+  
+  .tag-toggle.selected {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  
+  .diet-delete {
+    background: none;
+    border: none;
+    color: var(--text-tertiary);
+    font-size: 11px;
+    margin-top: 8px;
+    cursor: pointer;
+    padding: 4px 0;
+    font-family: inherit;
+  }
+  
+  /* === Cycle Page === */
+  .cycle-calendar {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .cycle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .cycle-month {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  
+  .cycle-nav {
+    background: var(--bg-elevated);
+    border: 1px solid var(--bg-border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .cycle-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+  
+  .cycle-day-label {
+    text-align: center;
+    font-size: 10px;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    padding: 4px 0;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .cycle-day {
+    aspect-ratio: 1;
+    background: var(--bg-elevated);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    position: relative;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .cycle-day.today {
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 700;
+  }
+  
+  .cycle-day.period {
+    background: var(--period);
+    color: white;
+  }
+  
+  .cycle-day.follicular {
+    background: #00e67625;
+    color: var(--success);
+  }
+  
+  .cycle-day.luteal {
+    background: #ffab0025;
+    color: var(--warning);
+  }
+  
+  .cycle-day.empty {
+    visibility: hidden;
+  }
+  
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--bg-border);
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+  
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+  }
+  
+  .cycle-info {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 16px;
+    padding: 16px;
+  }
+  
+  .cycle-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--bg-border);
+  }
+  
+  .cycle-info-row:last-child {
+    border-bottom: none;
+  }
+  
+  .cycle-info-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  
+  .cycle-info-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+  
+  .cycle-training-hint {
+    background: var(--bg-elevated);
+    border-left: 3px solid var(--accent);
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  
+  .cycle-training-hint strong {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  
+  /* === Data Management === */
+  .data-section {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .data-section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  
+  .data-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--bg-border);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-bottom: 8px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  
+  .data-btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    font-weight: 700;
+  }
+  
+  .data-btn:active {
+    transform: scale(0.98);
+  }
+  
+  .data-hint {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    margin-top: 8px;
+    padding: 8px;
+    background: var(--bg-elevated);
+    border-radius: 6px;
+  }
+  
+  /* === Export Modal === */
+  .export-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 16px;
+  }
+  
+  .export-modal.show {
+    display: flex;
+  }
+  
+  .export-content {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .export-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--bg-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .export-title {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  
+  .export-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 22px;
+    cursor: pointer;
+    padding: 0 8px;
+  }
+  
+  .export-textarea {
+    flex: 1;
+    width: 100%;
+    background: var(--bg-elevated);
+    border: none;
+    color: var(--text-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 12px;
+    resize: none;
+    min-height: 200px;
+    line-height: 1.5;
+  }
+  
+  .export-textarea:focus {
+    outline: none;
+  }
+  
+  .export-actions {
+    padding: 12px;
+    border-top: 1px solid var(--bg-border);
+    display: flex;
+    gap: 8px;
+  }
+  
+  .export-action-btn {
+    flex: 1;
+    padding: 10px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--bg-border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .export-action-btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  
+  /* === Modal === */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 20px;
+  }
+  
+  .modal-overlay.show {
+    display: flex;
+  }
+  
+  .modal {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 320px;
+    width: 100%;
+  }
+  
+  .modal-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  
+  .modal-btn-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  
+  .modal-btn {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--bg-border);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+  }
+  
+  .modal-btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  
+  /* === Empty State === */
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-tertiary);
+  }
+  
+  .empty-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    opacity: 0.3;
+  }
+  
+  .empty-text {
+    font-size: 13px;
+  }
+  
+  /* === Workout Toast === */
+  .toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--success);
+    color: var(--bg-primary);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    z-index: 300;
+    animation: toastIn 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  
+  @keyframes toastIn {
+    from { transform: translate(-50%, 20px); opacity: 0; }
+    to { transform: translate(-50%, 0); opacity: 1; }
+  }
+  
+  /* === PR Badge === */
+  .pr-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">
+    <span>JUUUUDY<span class="accent">.</span></span>
+    <span id="todayDay" style="font-size: 14px; color: var(--accent);"></span>
+  </div>
+  <div class="header-date" id="todayDate"></div>
+</div>
+
+<!-- 訓練頁 -->
+<div class="page active" id="page-workout">
+  <div class="day-selector">
+    <button class="day-btn" data-day="chest">胸</button>
+    <button class="day-btn" data-day="leg">腿</button>
+    <button class="day-btn" data-day="shoulder">肩</button>
+    <button class="day-btn" data-day="back">背</button>
+  </div>
+  <div id="exerciseList"></div>
+</div>
+
+<!-- 進度頁 -->
+<div class="page" id="page-progress">
+  <div class="stat-card">
+    <div class="stat-title">累計訓練次數</div>
+    <div><span class="stat-value" id="totalSessions">0</span><span class="stat-unit">次</span></div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-title">本週訓練</div>
+    <div><span class="stat-value" id="weekSessions">0</span><span class="stat-unit">/ 4 天</span></div>
+  </div>
+  
+  <!-- 資料管理區 -->
+  <div class="data-section">
+    <div class="data-section-title">資料管理</div>
+    <button class="data-btn primary" onclick="exportWeekly()">
+      📤 匯出本週紀錄（給 Claude 分析）
+    </button>
+    <button class="data-btn" onclick="exportAll()">
+      💾 匯出全部資料（備份用）
+    </button>
+    <label class="data-btn" for="importInput">
+      📥 匯入備份
+    </label>
+    <input type="file" id="importInput" accept=".json,.txt" style="display:none;">
+    <div class="data-hint">
+      匯出本週紀錄會產生一段文字，複製貼給 Claude 就能分析進步。<br>
+      匯出全部資料是 JSON 檔，換手機時可以匯入。
+    </div>
+  </div>
+  
+  <div id="exerciseProgress"></div>
+</div>
+
+<!-- 飲食頁 -->
+<div class="page" id="page-diet">
+  <label class="diet-upload" for="photoInput">
+    <div class="diet-upload-icon">📸</div>
+    <div class="diet-upload-text">拍照記錄這餐</div>
+  </label>
+  <input type="file" id="photoInput" accept="image/*" capture="environment">
+  <div id="dietList"></div>
+</div>
+
+<!-- 月經週期頁 -->
+<div class="page" id="page-cycle">
+  <div class="cycle-calendar">
+    <div class="cycle-header">
+      <button class="cycle-nav" onclick="changeMonth(-1)">‹</button>
+      <div class="cycle-month" id="cycleMonth"></div>
+      <button class="cycle-nav" onclick="changeMonth(1)">›</button>
+    </div>
+    <div class="cycle-grid" id="cycleGrid"></div>
+    <div class="cycle-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--period)"></div>經期</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#00e67625"></div>濾泡期</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ffab0025"></div>黃體期</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>今天</div>
+    </div>
+  </div>
+  
+  <div class="cycle-info">
+    <div class="cycle-info-row">
+      <span class="cycle-info-label">目前階段</span>
+      <span class="cycle-info-value" id="currentPhase">-</span>
+    </div>
+    <div class="cycle-info-row">
+      <span class="cycle-info-label">距離下次經期</span>
+      <span class="cycle-info-value" id="daysToNext">-</span>
+    </div>
+    <div class="cycle-info-row">
+      <span class="cycle-info-label">平均週期</span>
+      <span class="cycle-info-value" id="avgCycle">-</span>
+    </div>
+    <div class="cycle-training-hint" id="trainingHint"></div>
+  </div>
+</div>
+
+<!-- 底部 Tab -->
+<div class="tab-bar">
+  <button class="tab active" data-page="workout">
+    <span class="tab-icon">💪</span>
+    <span>訓練</span>
+  </button>
+  <button class="tab" data-page="progress">
+    <span class="tab-icon">📊</span>
+    <span>進度</span>
+  </button>
+  <button class="tab" data-page="diet">
+    <span class="tab-icon">🍱</span>
+    <span>飲食</span>
+  </button>
+  <button class="tab" data-page="cycle">
+    <span class="tab-icon">🌙</span>
+    <span>週期</span>
+  </button>
+</div>
+
+<!-- 經期紀錄 Modal -->
+<div class="modal-overlay" id="periodModal">
+  <div class="modal">
+    <div class="modal-title" id="periodModalTitle">標記日期</div>
+    <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;" id="periodModalDate"></div>
+    <div class="modal-btn-row" style="grid-template-columns: 1fr;">
+      <button class="modal-btn primary" onclick="markPeriod('start')">經期開始</button>
+      <button class="modal-btn" onclick="markPeriod('end')">經期結束</button>
+      <button class="modal-btn" onclick="markPeriod('clear')">清除標記</button>
+      <button class="modal-btn" onclick="closeModal()">取消</button>
+    </div>
+  </div>
+</div>
+
+<!-- 匯出 Modal -->
+<div class="export-modal" id="exportModal">
+  <div class="export-content">
+    <div class="export-header">
+      <div class="export-title" id="exportModalTitle">匯出紀錄</div>
+      <button class="export-close" onclick="closeExportModal()">×</button>
+    </div>
+    <textarea class="export-textarea" id="exportTextarea" readonly></textarea>
+    <div class="export-actions">
+      <button class="export-action-btn" onclick="closeExportModal()">關閉</button>
+      <button class="export-action-btn primary" onclick="copyExportText()">複製</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// =========== 菜單資料 ===========
+const MENU = {
+  chest: {
+    name: '胸日',
+    exercises: [
+      { id: 'chest_run', name: '跑步機暖身', target: '坡度 12 / 速度 5.0 / 20 分鐘', defaultWeight: 0, defaultReps: 20, defaultSets: 1, unit: '分鐘' },
+      { id: 'chest_press', name: '坐姿胸推機', target: '4 組 × 12 次', defaultWeight: 20, defaultReps: 12, defaultSets: 4 },
+      { id: 'chest_fly', name: '蝴蝶機夾胸（朝外坐）', target: '3 組 × 12 次', defaultWeight: 11.5, defaultReps: 12, defaultSets: 3 },
+      { id: 'chest_abs', name: '腹部捲體機', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4 }
+    ]
+  },
+  leg: {
+    name: '腿日',
+    exercises: [
+      { id: 'leg_run', name: '跑步機暖身', target: '坡度 12 / 速度 5.0 / 10 分鐘（腿日降量）', defaultWeight: 0, defaultReps: 10, defaultSets: 1, unit: '分鐘' },
+      { id: 'leg_press', name: '倒蹬機（3種踩法）', target: '3 組 × 15 次', defaultWeight: 7.5, defaultReps: 15, defaultSets: 3, unit: 'kg槓片' },
+      { id: 'leg_curl', name: '大腿後勾機 🆕', target: '3 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 3, new: true },
+      { id: 'leg_hipthrust', name: '臀推機 🆕', target: '3 組 × 12 次', defaultWeight: 25, defaultReps: 12, defaultSets: 3, new: true },
+      { id: 'leg_kickback', name: 'SHUA 臀後踢機', target: '3 組 × 15 次（每邊）', defaultWeight: 20, defaultReps: 15, defaultSets: 3 },
+      { id: 'leg_hip', name: '髖內外展機', target: '3 組 × 15 次', defaultWeight: 0, defaultReps: 15, defaultSets: 3 },
+      { id: 'leg_abs', name: '腹部捲體機', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4 }
+    ]
+  },
+  shoulder: {
+    name: '肩日',
+    exercises: [
+      { id: 'sh_run', name: '跑步機暖身', target: '坡度 12 / 速度 5.0 / 20 分鐘', defaultWeight: 0, defaultReps: 20, defaultSets: 1, unit: '分鐘' },
+      { id: 'sh_press', name: '坐姿肩推機', target: '4 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 4 },
+      { id: 'sh_lateral', name: '坐姿側平舉', target: '4 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 4 },
+      { id: 'sh_rear', name: '反向飛鳥（朝內坐）🆕', target: '3 組 × 12 次', defaultWeight: 11.5, defaultReps: 12, defaultSets: 3, new: true },
+      { id: 'sh_tri', name: 'SHUA 三頭肌訓練器', target: '4 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 4 },
+      { id: 'sh_abs', name: '腹部捲體機', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4 }
+    ]
+  },
+  back: {
+    name: '背日',
+    exercises: [
+      { id: 'bk_run', name: '跑步機暖身', target: '坡度 12 / 速度 5.0 / 20 分鐘', defaultWeight: 0, defaultReps: 20, defaultSets: 1, unit: '分鐘' },
+      { id: 'bk_lat_wide', name: '滑輪下拉（正握寬握）', target: '4 組 × 12 次', defaultWeight: 20, defaultReps: 12, defaultSets: 4 },
+      { id: 'bk_lat_narrow', name: '滑輪下拉（反握窄握）', target: '4 組 × 12 次', defaultWeight: 20, defaultReps: 12, defaultSets: 4 },
+      { id: 'bk_row', name: '低拉訓練器（坐姿划船）', target: '4 組 × 12 次', defaultWeight: 25, defaultReps: 12, defaultSets: 4 },
+      { id: 'bk_tbar', name: '俯臥拉背機 🆕', target: '3 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 3, new: true },
+      { id: 'bk_facepull', name: 'Cable 臉拉 🆕', target: '3 組 × 15 次（重感受不重重量）', defaultWeight: 10, defaultReps: 15, defaultSets: 3, new: true },
+      { id: 'bk_curl', name: '二頭彎舉（器械式）🆕', target: '3 組 × 12 次', defaultWeight: 10, defaultReps: 12, defaultSets: 3, new: true },
+      { id: 'bk_abs', name: '腹部捲體機', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4 }
+    ]
+  }
+};
+
+const FEEL_OPTIONS = [
+  { value: 1, label: '無感' },
+  { value: 2, label: '輕鬆' },
+  { value: 3, label: '剛好' },
+  { value: 4, label: '吃力' },
+  { value: 5, label: '爆酸' }
+];
+
+// =========== 資料儲存 ===========
+const STORAGE = {
+  get: (key, def) => {
+    try {
+      const v = localStorage.getItem(key);
+      return v ? JSON.parse(v) : def;
+    } catch (e) { return def; }
+  },
+  set: (key, val) => {
+    try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {}
+  }
+};
+
+let currentDay = 'chest';
+let workoutLogs = STORAGE.get('workoutLogs', {}); // { date: { exerciseId: { weight, reps, sets, feel } } }
+let dietLogs = STORAGE.get('dietLogs', []);
+let periodData = STORAGE.get('periodData', { periods: [], cycleLength: 28 });
+let calendarDate = new Date();
+
+// =========== 工具 ===========
+const todayKey = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+};
+
+const formatDate = (str) => {
+  const d = new Date(str);
+  return `${d.getMonth()+1}/${d.getDate()}`;
+};
+
+// =========== 初始化 ===========
+function init() {
+  const d = new Date();
+  const weekdays = ['日','一','二','三','四','五','六'];
+  document.getElementById('todayDate').textContent = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')} 星期${weekdays[d.getDay()]}`;
+  
+  // 預設今天訓練類型（簡單邏輯：週一胸 週二腿 週四肩 週五背）
+  const dayMap = { 1: 'chest', 2: 'leg', 4: 'shoulder', 5: 'back' };
+  const suggestedDay = dayMap[d.getDay()];
+  if (suggestedDay) {
+    currentDay = suggestedDay;
+    document.getElementById('todayDay').textContent = MENU[suggestedDay].name;
+  } else {
+    document.getElementById('todayDay').textContent = '休息日';
+  }
+  
+  // Tab 切換
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(`page-${tab.dataset.page}`).classList.add('active');
+      if (tab.dataset.page === 'progress') renderProgress();
+      if (tab.dataset.page === 'diet') renderDiet();
+      if (tab.dataset.page === 'cycle') renderCycle();
+    });
+  });
+  
+  // 日期切換
+  document.querySelectorAll('.day-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentDay = btn.dataset.day;
+      document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderWorkout();
+    });
+  });
+  
+  document.querySelector(`.day-btn[data-day="${currentDay}"]`).classList.add('active');
+  renderWorkout();
+  
+  // 飲食照片上傳
+  document.getElementById('photoInput').addEventListener('change', handlePhotoUpload);
+  document.getElementById('importInput').addEventListener('change', handleImport);
+}
+
+// =========== 訓練頁 ===========
+function renderWorkout() {
+  const menu = MENU[currentDay];
+  const today = todayKey();
+  const todayLog = workoutLogs[today] || {};
+  
+  const list = document.getElementById('exerciseList');
+  list.innerHTML = menu.exercises.map(ex => {
+    const log = todayLog[ex.id];
+    const lastLog = findLastLog(ex.id);
+    
+    return `
+      <div class="exercise-card ${log ? 'completed' : ''}" id="card-${ex.id}">
+        <div class="exercise-header">
+          <div>
+            <div class="exercise-name">${ex.name}</div>
+            <div class="exercise-target">目標：${ex.target}</div>
+          </div>
+        </div>
+        ${lastLog ? `
+          <div class="last-time">
+            上次（${formatDate(lastLog.date)}）：${lastLog.weight}${ex.unit||'kg'} × ${lastLog.reps} × ${lastLog.sets}組 · 感受 ${lastLog.feel}/5
+          </div>
+        ` : '<div class="last-time empty">尚無紀錄</div>'}
+        <div class="input-row">
+          <div class="input-group">
+            <label class="input-label">重量(${ex.unit||'kg'})</label>
+            <input class="input-field" type="number" step="0.5" id="w-${ex.id}" value="${log ? log.weight : ex.defaultWeight}">
+          </div>
+          <div class="input-group">
+            <label class="input-label">次數</label>
+            <input class="input-field" type="number" id="r-${ex.id}" value="${log ? log.reps : ex.defaultReps}">
+          </div>
+          <div class="input-group">
+            <label class="input-label">組數</label>
+            <input class="input-field" type="number" id="s-${ex.id}" value="${log ? log.sets : ex.defaultSets}">
+          </div>
+        </div>
+        <div class="input-label" style="margin-top:8px;">感受度</div>
+        <div class="feel-row">
+          ${FEEL_OPTIONS.map(opt => `
+            <button class="feel-btn ${log && log.feel === opt.value ? 'selected' : ''}" 
+              data-ex="${ex.id}" data-feel="${opt.value}" onclick="selectFeel('${ex.id}', ${opt.value})">
+              ${opt.value}
+            </button>
+          `).join('')}
+        </div>
+        <button class="save-btn ${log ? 'done' : ''}" onclick="saveExercise('${ex.id}')">
+          ${log ? '✓ 已完成' : '儲存'}
+        </button>
+      </div>
+    `;
+  }).join('');
+}
+
+function findLastLog(exerciseId) {
+  const today = todayKey();
+  const dates = Object.keys(workoutLogs).filter(d => d !== today).sort().reverse();
+  for (const d of dates) {
+    if (workoutLogs[d][exerciseId]) {
+      return { date: d, ...workoutLogs[d][exerciseId] };
+    }
+  }
+  return null;
+}
+
+function selectFeel(exId, feel) {
+  document.querySelectorAll(`.feel-btn[data-ex="${exId}"]`).forEach(b => b.classList.remove('selected'));
+  document.querySelector(`.feel-btn[data-ex="${exId}"][data-feel="${feel}"]`).classList.add('selected');
+}
+
+function saveExercise(exId) {
+  const today = todayKey();
+  if (!workoutLogs[today]) workoutLogs[today] = {};
+  
+  const weight = parseFloat(document.getElementById(`w-${exId}`).value) || 0;
+  const reps = parseInt(document.getElementById(`r-${exId}`).value) || 0;
+  const sets = parseInt(document.getElementById(`s-${exId}`).value) || 0;
+  const feelBtn = document.querySelector(`.feel-btn[data-ex="${exId}"].selected`);
+  const feel = feelBtn ? parseInt(feelBtn.dataset.feel) : 3;
+  
+  // 檢查是否是 PR
+  const isPR = checkPR(exId, weight);
+  
+  workoutLogs[today][exId] = { weight, reps, sets, feel };
+  STORAGE.set('workoutLogs', workoutLogs);
+  
+  showToast(isPR ? `🔥 新紀錄 PR！` : '✓ 已儲存');
+  renderWorkout();
+}
+
+function checkPR(exId, weight) {
+  let max = 0;
+  const today = todayKey();
+  for (const d of Object.keys(workoutLogs)) {
+    if (d === today) continue;
+    if (workoutLogs[d][exId] && workoutLogs[d][exId].weight > max) {
+      max = workoutLogs[d][exId].weight;
+    }
+  }
+  return weight > max && max > 0;
+}
+
+// =========== 進度頁 ===========
+function renderProgress() {
+  // 累計次數
+  const total = Object.keys(workoutLogs).length;
+  document.getElementById('totalSessions').textContent = total;
+  
+  // 本週次數
+  const now = new Date();
+  const weekStart = new Date(now);
+  weekStart.setDate(now.getDate() - now.getDay() + 1); // 週一開始
+  weekStart.setHours(0,0,0,0);
+  const weekCount = Object.keys(workoutLogs).filter(d => new Date(d) >= weekStart).length;
+  document.getElementById('weekSessions').textContent = weekCount;
+  
+  // 各動作進步圖
+  const progressDiv = document.getElementById('exerciseProgress');
+  
+  // 收集每個動作的歷史
+  const exerciseHistory = {};
+  Object.keys(workoutLogs).sort().forEach(date => {
+    Object.entries(workoutLogs[date]).forEach(([exId, log]) => {
+      if (!exerciseHistory[exId]) exerciseHistory[exId] = [];
+      exerciseHistory[exId].push({ date, weight: log.weight });
+    });
+  });
+  
+  // 找到動作名稱
+  const exMeta = {};
+  Object.values(MENU).forEach(day => {
+    day.exercises.forEach(ex => { exMeta[ex.id] = ex; });
+  });
+  
+  if (Object.keys(exerciseHistory).length === 0) {
+    progressDiv.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">📈</div>
+        <div class="empty-text">開始訓練後，這裡會顯示妳每個動作的進步曲線</div>
+      </div>
+    `;
+    return;
+  }
+  
+  progressDiv.innerHTML = Object.entries(exerciseHistory)
+    .filter(([_, history]) => history.length >= 1)
+    .map(([exId, history]) => {
+      const ex = exMeta[exId];
+      if (!ex) return '';
+      const last = history[history.length - 1];
+      const first = history[0];
+      const change = history.length > 1 ? (last.weight - first.weight).toFixed(1) : 0;
+      
+      return `
+        <div class="progress-chart">
+          <div class="chart-title">${ex.name}</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-tertiary); margin-bottom: 8px;">
+            目前 ${last.weight}${ex.unit||'kg'} 
+            ${change > 0 ? `<span style="color:var(--success)">↑ +${change}</span>` : ''}
+            ${change < 0 ? `<span style="color:var(--warning)">↓ ${change}</span>` : ''}
+          </div>
+          <div class="chart-canvas">
+            ${renderMiniChart(history)}
+          </div>
+        </div>
+      `;
+    }).join('');
+}
+
+function renderMiniChart(history) {
+  if (history.length < 2) {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-tertiary);font-size:11px;">需要至少 2 次紀錄才能畫圖</div>`;
+  }
+  
+  const weights = history.map(h => h.weight);
+  const max = Math.max(...weights);
+  const min = Math.min(...weights);
+  const range = max - min || 1;
+  const w = 100;
+  const h = 100;
+  
+  const points = history.map((p, i) => {
+    const x = (i / (history.length - 1)) * w;
+    const y = h - ((p.weight - min) / range) * 80 - 10;
+    return `${x},${y}`;
+  });
+  
+  return `
+    <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="width:100%;height:100%;">
+      <defs>
+        <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ff3d00" stop-opacity="0.4"/>
+          <stop offset="100%" stop-color="#ff3d00" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <polygon points="0,${h} ${points.join(' ')} ${w},${h}" fill="url(#grad)"/>
+      <polyline points="${points.join(' ')}" fill="none" stroke="#ff3d00" stroke-width="2" vector-effect="non-scaling-stroke"/>
+      ${history.map((p, i) => {
+        const x = (i / (history.length - 1)) * w;
+        const y = h - ((p.weight - min) / range) * 80 - 10;
+        return `<circle cx="${x}" cy="${y}" r="2" fill="#ff3d00"/>`;
+      }).join('')}
+    </svg>
+  `;
+}
+
+// =========== 飲食頁 ===========
+function handlePhotoUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    const newEntry = {
+      id: Date.now(),
+      photo: event.target.result,
+      time: new Date().toISOString(),
+      mealType: '',
+      tags: [],
+      note: ''
+    };
+    dietLogs.unshift(newEntry);
+    STORAGE.set('dietLogs', dietLogs);
+    renderDiet();
+    showToast('✓ 已儲存');
+  };
+  reader.readAsDataURL(file);
+  e.target.value = '';
+}
+
+function renderDiet() {
+  const list = document.getElementById('dietList');
+  if (dietLogs.length === 0) {
+    list.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">🍱</div>
+        <div class="empty-text">拍下這餐，建立飲食習慣紀錄</div>
+      </div>
+    `;
+    return;
+  }
+  
+  list.innerHTML = dietLogs.map(entry => {
+    const d = new Date(entry.time);
+    const timeStr = `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+    
+    return `
+      <div class="diet-entry" id="diet-${entry.id}">
+        <img class="diet-photo" src="${entry.photo}">
+        <div class="diet-meta">
+          <div class="diet-time">${timeStr}</div>
+          <div class="diet-tag-input">
+            ${['早餐','午餐','晚餐','點心'].map(m => `
+              <span class="tag-toggle ${entry.mealType === m ? 'selected' : ''}" 
+                onclick="setDietTag(${entry.id}, 'mealType', '${m}')">${m}</span>
+            `).join('')}
+          </div>
+          <div class="diet-tag-input">
+            ${['蛋白質夠','蛋白質低','碳水高','蔬菜足','重醬料'].map(t => `
+              <span class="tag-toggle ${entry.tags.includes(t) ? 'selected' : ''}" 
+                onclick="toggleDietTag(${entry.id}, '${t}')">${t}</span>
+            `).join('')}
+          </div>
+          <button class="diet-delete" onclick="deleteDiet(${entry.id})">刪除這筆</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function setDietTag(id, key, val) {
+  const entry = dietLogs.find(e => e.id === id);
+  if (entry) {
+    entry[key] = entry[key] === val ? '' : val;
+    STORAGE.set('dietLogs', dietLogs);
+    renderDiet();
+  }
+}
+
+function toggleDietTag(id, tag) {
+  const entry = dietLogs.find(e => e.id === id);
+  if (entry) {
+    const idx = entry.tags.indexOf(tag);
+    if (idx >= 0) entry.tags.splice(idx, 1);
+    else entry.tags.push(tag);
+    STORAGE.set('dietLogs', dietLogs);
+    renderDiet();
+  }
+}
+
+function deleteDiet(id) {
+  if (confirm('確定要刪除這筆紀錄嗎？')) {
+    dietLogs = dietLogs.filter(e => e.id !== id);
+    STORAGE.set('dietLogs', dietLogs);
+    renderDiet();
+  }
+}
+
+// =========== 月經週期頁 ===========
+let selectedDate = null;
+
+function renderCycle() {
+  const year = calendarDate.getFullYear();
+  const month = calendarDate.getMonth();
+  document.getElementById('cycleMonth').textContent = `${year}.${String(month+1).padStart(2,'0')}`;
+  
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+  
+  const grid = document.getElementById('cycleGrid');
+  let html = '';
+  
+  // 星期標題
+  ['日','一','二','三','四','五','六'].forEach(d => {
+    html += `<div class="cycle-day-label">${d}</div>`;
+  });
+  
+  // 空白格
+  for (let i = 0; i < firstDay; i++) {
+    html += '<div class="cycle-day empty"></div>';
+  }
+  
+  // 日期
+  const today = new Date();
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    const isToday = day === today.getDate() && month === today.getMonth() && year === today.getFullYear();
+    const phase = getPhase(dateStr);
+    let cls = 'cycle-day';
+    if (isToday) cls += ' today';
+    if (phase) cls += ` ${phase}`;
+    html += `<div class="${cls}" onclick="openPeriodModal('${dateStr}')">${day}</div>`;
+  }
+  
+  grid.innerHTML = html;
+  
+  // 當前階段資訊
+  updatePhaseInfo();
+}
+
+function getPhase(dateStr) {
+  if (!periodData.periods || periodData.periods.length === 0) return null;
+  
+  const date = new Date(dateStr);
+  
+  // 檢查是否在某個經期內
+  for (const p of periodData.periods) {
+    const start = new Date(p.start);
+    const end = p.end ? new Date(p.end) : new Date(start.getTime() + 5*24*60*60*1000);
+    if (date >= start && date <= end) return 'period';
+  }
+  
+  // 找最近的經期
+  const sortedPeriods = [...periodData.periods].sort((a,b) => new Date(b.start) - new Date(a.start));
+  const lastPeriod = sortedPeriods.find(p => new Date(p.start) <= date);
+  if (!lastPeriod) return null;
+  
+  const lastStart = new Date(lastPeriod.start);
+  const daysSince = Math.floor((date - lastStart) / (24*60*60*1000));
+  const cycleLen = periodData.cycleLength || 28;
+  
+  if (daysSince > cycleLen) return null;
+  if (daysSince <= cycleLen / 2) return 'follicular'; // 濾泡期
+  return 'luteal'; // 黃體期
+}
+
+function updatePhaseInfo() {
+  const today = new Date();
+  const todayStr = todayKey();
+  const phase = getPhase(todayStr);
+  
+  const phaseMap = {
+    period: { name: '經期', hint: '<strong>休息為主</strong>。可做輕度伸展、Zone 2 散步。經期不需強迫訓練，恢復才是重點。' },
+    follicular: { name: '濾泡期 ⚡', hint: '<strong>強度高峰期！</strong>身體耐受度最高，這幾天適合挑戰重量、嘗試 PR。可以把腿日臀推、背日下拉的重量往上推。' },
+    luteal: { name: '黃體期', hint: '<strong>強度回落</strong>。可能會水腫、易疲勞。維持訓練但不強求進步，重感受度、動作品質優先。' }
+  };
+  
+  if (phase && phaseMap[phase]) {
+    document.getElementById('currentPhase').textContent = phaseMap[phase].name;
+    document.getElementById('trainingHint').innerHTML = phaseMap[phase].hint;
+  } else {
+    document.getElementById('currentPhase').textContent = '尚未標記';
+    document.getElementById('trainingHint').innerHTML = '點擊日期標記經期開始日，系統會自動推算濾泡期/黃體期，並對齊訓練強度建議。';
+  }
+  
+  // 距離下次
+  if (periodData.periods.length > 0) {
+    const sortedPeriods = [...periodData.periods].sort((a,b) => new Date(b.start) - new Date(a.start));
+    const lastStart = new Date(sortedPeriods[0].start);
+    const nextStart = new Date(lastStart.getTime() + (periodData.cycleLength || 28) * 24*60*60*1000);
+    const daysToNext = Math.ceil((nextStart - today) / (24*60*60*1000));
+    document.getElementById('daysToNext').textContent = daysToNext >= 0 ? `${daysToNext} 天` : '已超過預期';
+    
+    // 平均週期
+    if (periodData.periods.length >= 2) {
+      const sorted = [...periodData.periods].sort((a,b) => new Date(a.start) - new Date(b.start));
+      const diffs = [];
+      for (let i = 1; i < sorted.length; i++) {
+        const d = Math.round((new Date(sorted[i].start) - new Date(sorted[i-1].start)) / (24*60*60*1000));
+        diffs.push(d);
+      }
+      const avg = Math.round(diffs.reduce((a,b)=>a+b,0) / diffs.length);
+      document.getElementById('avgCycle').textContent = `${avg} 天`;
+      periodData.cycleLength = avg;
+      STORAGE.set('periodData', periodData);
+    } else {
+      document.getElementById('avgCycle').textContent = '28 天（預設）';
+    }
+  } else {
+    document.getElementById('daysToNext').textContent = '-';
+    document.getElementById('avgCycle').textContent = '-';
+  }
+}
+
+function changeMonth(delta) {
+  calendarDate.setMonth(calendarDate.getMonth() + delta);
+  renderCycle();
+}
+
+function openPeriodModal(dateStr) {
+  selectedDate = dateStr;
+  const d = new Date(dateStr);
+  document.getElementById('periodModalDate').textContent = `${d.getMonth()+1}月${d.getDate()}日`;
+  document.getElementById('periodModal').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('periodModal').classList.remove('show');
+  selectedDate = null;
+}
+
+function markPeriod(action) {
+  if (!selectedDate) return;
+  
+  if (action === 'start') {
+    // 檢查有沒有未結束的經期
+    const ongoing = periodData.periods.find(p => !p.end);
+    if (ongoing) {
+      if (!confirm('上一次經期還沒結束，確定要開始新的經期嗎？\n（會自動把上一次結束於前一天）')) {
+        closeModal();
+        return;
+      }
+      // 把舊的結束於 selectedDate 前一天
+      const prev = new Date(selectedDate);
+      prev.setDate(prev.getDate() - 1);
+      ongoing.end = prev.toISOString().split('T')[0];
+    }
+    periodData.periods.push({ start: selectedDate });
+  } else if (action === 'end') {
+    const ongoing = [...periodData.periods].reverse().find(p => !p.end);
+    if (ongoing) {
+      ongoing.end = selectedDate;
+    } else {
+      alert('沒有進行中的經期可以結束。請先標記開始日。');
+      closeModal();
+      return;
+    }
+  } else if (action === 'clear') {
+    periodData.periods = periodData.periods.filter(p => {
+      const start = new Date(p.start);
+      const end = p.end ? new Date(p.end) : new Date(start.getTime() + 7*24*60*60*1000);
+      const target = new Date(selectedDate);
+      return !(target >= start && target <= end);
+    });
+  }
+  
+  STORAGE.set('periodData', periodData);
+  closeModal();
+  renderCycle();
+}
+
+// =========== 匯出 / 匯入 ===========
+function exportWeekly() {
+  // 取得本週訓練紀錄（週一開始）
+  const now = new Date();
+  const weekStart = new Date(now);
+  weekStart.setDate(now.getDate() - (now.getDay() === 0 ? 6 : now.getDay() - 1));
+  weekStart.setHours(0,0,0,0);
+  
+  const exMeta = {};
+  Object.values(MENU).forEach(day => {
+    day.exercises.forEach(ex => { exMeta[ex.id] = { ...ex, dayName: day.name }; });
+  });
+  
+  // 收集本週訓練
+  const weekLogs = Object.keys(workoutLogs)
+    .filter(d => new Date(d) >= weekStart)
+    .sort();
+  
+  // 收集本週飲食標籤統計
+  const weekDiet = dietLogs.filter(e => new Date(e.time) >= weekStart);
+  
+  // 月經週期狀態
+  const todayPhase = getPhase(todayKey());
+  const phaseMap = { period: '經期', follicular: '濾泡期', luteal: '黃體期' };
+  
+  // 組合報告文字
+  let text = `📊 Juuuudy 訓練週報\n`;
+  text += `週期：${formatDate(weekStart.toISOString().split('T')[0])} ~ ${formatDate(todayKey())}\n`;
+  text += `生理階段：${todayPhase ? phaseMap[todayPhase] : '未標記'}\n`;
+  text += `本週訓練：${weekLogs.length} / 4 天\n\n`;
+  
+  if (weekLogs.length === 0) {
+    text += `本週還沒有訓練紀錄。\n`;
+  } else {
+    weekLogs.forEach(date => {
+      const log = workoutLogs[date];
+      const exIds = Object.keys(log);
+      // 推測這是哪一天的訓練（根據動作 id 前綴）
+      const prefixes = exIds.map(id => id.split('_')[0]);
+      const counts = {};
+      prefixes.forEach(p => counts[p] = (counts[p] || 0) + 1);
+      const mainPrefix = Object.keys(counts).sort((a,b) => counts[b] - counts[a])[0];
+      const dayNameMap = { chest: '胸日', leg: '腿日', sh: '肩日', bk: '背日' };
+      const dayName = dayNameMap[mainPrefix] || '訓練';
+      
+      text += `━━ ${formatDate(date)} ${dayName} ━━\n`;
+      exIds.forEach(id => {
+        const ex = exMeta[id];
+        const l = log[id];
+        if (!ex) return;
+        const unit = ex.unit || 'kg';
+        const feelMap = ['', '無感', '輕鬆', '剛好', '吃力', '爆酸'];
+        text += `• ${ex.name}：${l.weight}${unit} × ${l.reps} × ${l.sets}組｜感受${l.feel}(${feelMap[l.feel]})\n`;
+      });
+      text += `\n`;
+    });
+  }
+  
+  // 飲食標籤統計
+  if (weekDiet.length > 0) {
+    text += `━━ 本週飲食標籤統計（${weekDiet.length} 餐）━━\n`;
+    const tagCounts = {};
+    weekDiet.forEach(e => {
+      e.tags.forEach(t => tagCounts[t] = (tagCounts[t] || 0) + 1);
+    });
+    Object.entries(tagCounts).sort((a,b) => b[1] - a[1]).forEach(([t, c]) => {
+      text += `• ${t}：${c} 次\n`;
+    });
+    text += `\n`;
+  }
+  
+  // 跟前一週的對比（找重點動作的進步）
+  const lastWeekStart = new Date(weekStart);
+  lastWeekStart.setDate(lastWeekStart.getDate() - 7);
+  const lastWeekLogs = Object.keys(workoutLogs)
+    .filter(d => {
+      const dd = new Date(d);
+      return dd >= lastWeekStart && dd < weekStart;
+    });
+  
+  if (lastWeekLogs.length > 0 && weekLogs.length > 0) {
+    text += `━━ 與上週比較 ━━\n`;
+    // 找各動作本週最大重量 vs 上週最大重量
+    const thisWeekMax = {};
+    const lastWeekMax = {};
+    weekLogs.forEach(d => {
+      Object.entries(workoutLogs[d]).forEach(([id, l]) => {
+        if (!thisWeekMax[id] || l.weight > thisWeekMax[id]) thisWeekMax[id] = l.weight;
+      });
+    });
+    lastWeekLogs.forEach(d => {
+      Object.entries(workoutLogs[d]).forEach(([id, l]) => {
+        if (!lastWeekMax[id] || l.weight > lastWeekMax[id]) lastWeekMax[id] = l.weight;
+      });
+    });
+    Object.keys(thisWeekMax).forEach(id => {
+      const ex = exMeta[id];
+      if (!ex) return;
+      const now = thisWeekMax[id];
+      const prev = lastWeekMax[id];
+      if (prev) {
+        const diff = (now - prev).toFixed(1);
+        const arrow = diff > 0 ? '↑' : (diff < 0 ? '↓' : '=');
+        text += `• ${ex.name}：${prev} → ${now}${ex.unit||'kg'} ${arrow}${diff > 0 ? '+' : ''}${diff}\n`;
+      }
+    });
+    text += `\n`;
+  }
+  
+  text += `\n— 請 Claude 分析以上紀錄並給下週調整建議 —`;
+  
+  showExportModal('本週訓練紀錄（複製給 Claude）', text);
+}
+
+function exportAll() {
+  const data = {
+    exportDate: new Date().toISOString(),
+    workoutLogs,
+    dietLogs: dietLogs.map(e => ({ ...e, photo: '[照片省略，匯入時請重新拍照]' })), // 照片太大不匯出
+    periodData
+  };
+  
+  const text = JSON.stringify(data, null, 2);
+  showExportModal('全部資料備份（匯入時用）', text);
+  
+  // 順便下載 JSON 檔
+  const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `juuuudy-training-${todayKey()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function showExportModal(title, text) {
+  document.getElementById('exportModalTitle').textContent = title;
+  document.getElementById('exportTextarea').value = text;
+  document.getElementById('exportModal').classList.add('show');
+}
+
+function closeExportModal() {
+  document.getElementById('exportModal').classList.remove('show');
+}
+
+function copyExportText() {
+  const textarea = document.getElementById('exportTextarea');
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+  
+  // 優先用 Clipboard API
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(textarea.value).then(() => {
+      showToast('✓ 已複製到剪貼簿');
+      closeExportModal();
+    }).catch(() => {
+      document.execCommand('copy');
+      showToast('✓ 已複製');
+      closeExportModal();
+    });
+  } else {
+    document.execCommand('copy');
+    showToast('✓ 已複製');
+    closeExportModal();
+  }
+}
+
+function handleImport(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    try {
+      const data = JSON.parse(event.target.result);
+      if (!confirm('匯入會覆蓋目前資料，確定嗎？\n（建議先「匯出全部資料」備份再匯入）')) {
+        e.target.value = '';
+        return;
+      }
+      if (data.workoutLogs) {
+        workoutLogs = data.workoutLogs;
+        STORAGE.set('workoutLogs', workoutLogs);
+      }
+      if (data.periodData) {
+        periodData = data.periodData;
+        STORAGE.set('periodData', periodData);
+      }
+      // 飲食照片因為匯出時被省略，所以不覆蓋現有飲食紀錄
+      showToast('✓ 匯入完成（訓練+週期資料已更新）');
+      // 重新渲染當前頁
+      renderWorkout();
+      renderProgress();
+      renderCycle();
+    } catch (err) {
+      alert('匯入失敗：檔案格式錯誤\n' + err.message);
+    }
+    e.target.value = '';
+  };
+  reader.readAsText(file);
+}
+
+// =========== Toast ===========
+function showToast(msg) {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+  
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2000);
+}
+
+// =========== 啟動 ===========
+init();
+</script>
+</body>
+</html>
