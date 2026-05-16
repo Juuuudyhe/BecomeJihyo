@@ -136,6 +136,73 @@
     to { opacity: 1; transform: translateY(0); }
   }
   
+  /* === Date Picker === */
+  .date-picker-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .date-nav {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 20px;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  
+  .date-nav:active {
+    background: var(--bg-elevated);
+  }
+  
+  .date-display {
+    flex: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    border-radius: 10px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  .date-display input[type="date"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .today-jump {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 4px;
+    margin-bottom: 12px;
+    display: none;
+  }
+  
+  .today-jump.show {
+    display: block;
+  }
+  
   /* === Day Selector === */
   .day-selector {
     display: grid;
@@ -925,6 +992,15 @@
 
 <!-- 訓練頁 -->
 <div class="page active" id="page-workout">
+  <div class="date-picker-bar">
+    <button class="date-nav" onclick="changeWorkoutDate(-1)">‹</button>
+    <div class="date-display" onclick="document.getElementById('workoutDateInput').showPicker()">
+      <span id="workoutDateLabel"></span>
+      <input type="date" id="workoutDateInput">
+    </div>
+    <button class="date-nav" onclick="changeWorkoutDate(1)">›</button>
+  </div>
+  <button class="today-jump" id="todayJump" onclick="jumpToToday()">回到今天</button>
   <div class="day-selector">
     <button class="day-btn" data-day="chest">胸</button>
     <button class="day-btn" data-day="leg">腿</button>
@@ -1137,10 +1213,18 @@ let workoutLogs = STORAGE.get('workoutLogs', {}); // { date: { exerciseId: { wei
 let dietLogs = STORAGE.get('dietLogs', []);
 let periodData = STORAGE.get('periodData', { periods: [], cycleLength: 28 });
 let calendarDate = new Date();
+let selectedWorkoutDate = null; // 訓練頁目前檢視/記錄的日期，null = 今天
 
 // =========== 工具 ===========
 const todayKey = () => {
   const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+};
+
+// 訓練頁目前作用的日期（可能是今天或使用者選的某天）
+const activeDateKey = () => selectedWorkoutDate || todayKey();
+
+const dateToKey = (d) => {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 };
 
@@ -1189,6 +1273,17 @@ function init() {
   });
   
   document.querySelector(`.day-btn[data-day="${currentDay}"]`).classList.add('active');
+  
+  // 日期選擇器
+  document.getElementById('workoutDateInput').addEventListener('change', (e) => {
+    if (e.target.value) {
+      selectedWorkoutDate = e.target.value;
+      updateWorkoutDateUI();
+      renderWorkout();
+    }
+  });
+  
+  updateWorkoutDateUI();
   renderWorkout();
   
   // 飲食照片上傳
@@ -1196,10 +1291,60 @@ function init() {
   document.getElementById('importInput').addEventListener('change', handleImport);
 }
 
+// =========== 訓練日期切換 ===========
+function updateWorkoutDateUI() {
+  const key = activeDateKey();
+  const d = new Date(key);
+  const weekdays = ['日','一','二','三','四','五','六'];
+  const isToday = (key === todayKey());
+  
+  // 日期顯示文字
+  let label = `${d.getMonth()+1}/${d.getDate()}（${weekdays[d.getDay()]}）`;
+  if (isToday) label += ' · 今天';
+  document.getElementById('workoutDateLabel').textContent = label;
+  
+  // 同步 date input 的值
+  document.getElementById('workoutDateInput').value = key;
+  
+  // 「回到今天」按鈕：非今天才顯示
+  const todayJump = document.getElementById('todayJump');
+  if (isToday) {
+    todayJump.classList.remove('show');
+  } else {
+    todayJump.classList.add('show');
+  }
+  
+  // 根據選定日期自動建議訓練類型
+  const dayMap = { 1: 'chest', 2: 'leg', 4: 'shoulder', 5: 'back' };
+  const suggested = dayMap[d.getDay()];
+  if (suggested) {
+    currentDay = suggested;
+    document.querySelectorAll('.day-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.day === suggested);
+    });
+  }
+}
+
+function changeWorkoutDate(delta) {
+  const d = new Date(activeDateKey());
+  d.setDate(d.getDate() + delta);
+  selectedWorkoutDate = dateToKey(d);
+  // 如果切回今天，把 selectedWorkoutDate 設回 null
+  if (selectedWorkoutDate === todayKey()) selectedWorkoutDate = null;
+  updateWorkoutDateUI();
+  renderWorkout();
+}
+
+function jumpToToday() {
+  selectedWorkoutDate = null;
+  updateWorkoutDateUI();
+  renderWorkout();
+}
+
 // =========== 訓練頁 ===========
 function renderWorkout() {
   const menu = MENU[currentDay];
-  const today = todayKey();
+  const today = activeDateKey();
   const todayLog = workoutLogs[today] || {};
   
   const list = document.getElementById('exerciseList');
@@ -1289,8 +1434,9 @@ function renderWorkout() {
 }
 
 function findLastLog(exerciseId) {
-  const today = todayKey();
-  const dates = Object.keys(workoutLogs).filter(d => d !== today).sort().reverse();
+  const today = activeDateKey();
+  // 找比目前檢視日期更早的紀錄
+  const dates = Object.keys(workoutLogs).filter(d => d < today).sort().reverse();
   for (const d of dates) {
     if (workoutLogs[d][exerciseId]) {
       return { date: d, ...workoutLogs[d][exerciseId] };
@@ -1305,7 +1451,7 @@ function selectFeel(exId, feel) {
 }
 
 function saveExercise(exId) {
-  const today = todayKey();
+  const today = activeDateKey();
   if (!workoutLogs[today]) workoutLogs[today] = {};
   
   const weight = parseFloat(document.getElementById(`w-${exId}`).value) || 0;
@@ -1325,7 +1471,7 @@ function saveExercise(exId) {
 }
 
 function saveCardio(exId) {
-  const today = todayKey();
+  const today = activeDateKey();
   if (!workoutLogs[today]) workoutLogs[today] = {};
   
   const incline = parseFloat(document.getElementById(`incline-${exId}`).value) || 0;
@@ -1341,7 +1487,7 @@ function saveCardio(exId) {
 
 function checkPR(exId, weight) {
   let max = 0;
-  const today = todayKey();
+  const today = activeDateKey();
   for (const d of Object.keys(workoutLogs)) {
     if (d === today) continue;
     if (workoutLogs[d][exId] && workoutLogs[d][exId].weight > max) {
