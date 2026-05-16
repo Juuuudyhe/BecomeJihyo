@@ -644,6 +644,27 @@
     color: var(--success);
   }
   
+  .cycle-day.ovulation {
+    background: #7c4dff35;
+    color: #b388ff;
+  }
+  
+  .cycle-len-btn {
+    background: var(--bg-elevated);
+    border: 1px solid var(--bg-border);
+    border-radius: 6px;
+    color: var(--text-primary);
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+  
+  .cycle-len-btn:active {
+    background: var(--accent);
+  }
+  
   .cycle-day.luteal {
     background: #ffab0025;
     color: var(--warning);
@@ -1065,6 +1086,7 @@
     <div class="cycle-legend">
       <div class="legend-item"><div class="legend-dot" style="background:var(--period)"></div>經期</div>
       <div class="legend-item"><div class="legend-dot" style="background:#00e67625"></div>濾泡期</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7c4dff35"></div>排卵期</div>
       <div class="legend-item"><div class="legend-dot" style="background:#ffab0025"></div>黃體期</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>今天</div>
     </div>
@@ -1082,6 +1104,18 @@
     <div class="cycle-info-row">
       <span class="cycle-info-label">平均週期</span>
       <span class="cycle-info-value" id="avgCycle">-</span>
+    </div>
+    <div class="cycle-info-row">
+      <span class="cycle-info-label">週期長度設定</span>
+      <span class="cycle-info-value">
+        <button class="cycle-len-btn" onclick="adjustCycleLength(-1)">−</button>
+        <span id="cycleLenValue" style="margin:0 10px;">28</span>
+        <button class="cycle-len-btn" onclick="adjustCycleLength(1)">＋</button>
+        <span style="font-weight:400;color:var(--text-secondary);margin-left:4px;">天</span>
+      </span>
+    </div>
+    <div style="font-size:11px;color:var(--text-tertiary);line-height:1.6;margin-top:8px;padding:8px;background:var(--bg-elevated);border-radius:6px;">
+      標記過 2 次以上經期後，平均週期會自動計算。在那之前可以手動調整週期長度，排卵期會跟著重新定位（排卵日＝週期長度−14 天）。
     </div>
     <div class="cycle-training-hint" id="trainingHint"></div>
   </div>
@@ -1758,8 +1792,18 @@ function getPhase(dateStr) {
   const cycleLen = periodData.cycleLength || 28;
   
   if (daysSince > cycleLen) return null;
-  if (daysSince <= cycleLen / 2) return 'follicular'; // 濾泡期
-  return 'luteal'; // 黃體期
+  
+  // 四階段判斷
+  // 排卵日 = 下次經期前 14 天 = 週期長度 - 14
+  const ovulationDay = cycleLen - 14;
+  
+  // 經期已在上面判斷過（5-7天），這裡剩三階段
+  // 排卵期：排卵日前後各 2 天
+  if (daysSince >= ovulationDay - 2 && daysSince <= ovulationDay + 2) return 'ovulation';
+  // 排卵期之前 = 濾泡期
+  if (daysSince < ovulationDay - 2) return 'follicular';
+  // 排卵期之後 = 黃體期
+  return 'luteal';
 }
 
 function updatePhaseInfo() {
@@ -1768,8 +1812,9 @@ function updatePhaseInfo() {
   const phase = getPhase(todayStr);
   
   const phaseMap = {
-    period: { name: '經期', hint: '<strong>休息為主</strong>。可做輕度伸展、Zone 2 散步。經期不需強迫訓練，恢復才是重點。' },
+    period: { name: '經期', hint: '<strong>休息為主</strong>。可做輕度伸展或散步。經期不需強迫訓練，恢復才是重點。' },
     follicular: { name: '濾泡期 ⚡', hint: '<strong>強度高峰期！</strong>身體耐受度最高，這幾天適合挑戰重量、嘗試 PR。可以把腿日臀推、背日下拉的重量往上推。' },
+    ovulation: { name: '排卵期', hint: '<strong>力量表現好</strong>，但若有排卵痛或不適，以舒適為主、不強求。沒有不適的話這幾天也適合衝重量。' },
     luteal: { name: '黃體期', hint: '<strong>強度回落</strong>。可能會水腫、易疲勞。維持訓練但不強求進步，重感受度、動作品質優先。' }
   };
   
@@ -1798,16 +1843,30 @@ function updatePhaseInfo() {
         diffs.push(d);
       }
       const avg = Math.round(diffs.reduce((a,b)=>a+b,0) / diffs.length);
-      document.getElementById('avgCycle').textContent = `${avg} 天`;
+      document.getElementById('avgCycle').textContent = `${avg} 天（自動）`;
       periodData.cycleLength = avg;
       STORAGE.set('periodData', periodData);
     } else {
-      document.getElementById('avgCycle').textContent = '28 天（預設）';
+      document.getElementById('avgCycle').textContent = '需 2 次紀錄';
     }
   } else {
     document.getElementById('daysToNext').textContent = '-';
     document.getElementById('avgCycle').textContent = '-';
   }
+  
+  // 顯示目前週期長度設定
+  document.getElementById('cycleLenValue').textContent = periodData.cycleLength || 28;
+}
+
+function adjustCycleLength(delta) {
+  let len = (periodData.cycleLength || 28) + delta;
+  // 合理範圍 21-40 天
+  if (len < 21) len = 21;
+  if (len > 40) len = 40;
+  periodData.cycleLength = len;
+  STORAGE.set('periodData', periodData);
+  renderCycle(); // 重新渲染，排卵期會跟著移動
+  showToast(`週期長度設為 ${len} 天`);
 }
 
 function changeMonth(delta) {
@@ -1890,7 +1949,7 @@ function exportWeekly() {
   
   // 月經週期狀態
   const todayPhase = getPhase(todayKey());
-  const phaseMap = { period: '經期', follicular: '濾泡期', luteal: '黃體期' };
+  const phaseMap = { period: '經期', follicular: '濾泡期', ovulation: '排卵期', luteal: '黃體期' };
   
   // 組合報告文字
   let text = `📊 Juuuudy 訓練週報\n`;
