@@ -1066,46 +1066,47 @@ const MENU = {
   chest: {
     name: '胸日',
     exercises: [
-      { id: 'chest_run', name: '跑步機暖身', target: '坡度 12 / 速度 5.0 / 20 分鐘', defaultWeight: 0, defaultReps: 20, defaultSets: 1, unit: '分鐘' },
-      { id: 'chest_press', name: '坐姿胸推機', target: '4 組 × 12 次', defaultWeight: 20, defaultReps: 12, defaultSets: 4 },
-      { id: 'chest_fly', name: '蝴蝶機夾胸（朝外坐）', target: '3 組 × 12 次', defaultWeight: 11.5, defaultReps: 12, defaultSets: 3 },
-      { id: 'chest_abs', name: '腹部捲體機', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4 }
+      { id: 'chest_run', name: '跑步機暖身', type: 'cardio', target: '坡度 12 / 速度 5.0 / 20 分鐘', defaultIncline: 12, defaultSpeed: 5.0, defaultMinutes: 20 },
+      { id: 'chest_press', name: '坐姿胸推機', type: 'weight', target: '4 組 × 12 次', defaultWeight: 20, defaultReps: 12, defaultSets: 4, unit: 'kg' },
+      { id: 'chest_incline', name: '上斜胸推機 🆕', type: 'weight', target: '3 組 × 12 次', defaultWeight: 5, defaultReps: 12, defaultSets: 3, unit: 'kg槓片', new: true },
+      { id: 'chest_fly', name: '蝴蝶機夾胸（朝外坐）', type: 'weight', target: '3 組 × 12 次', defaultWeight: 11.5, defaultReps: 12, defaultSets: 3, unit: 'kg' },
+      { id: 'chest_abs', name: '腹部捲體機', type: 'weight', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4, unit: 'kg' }
     ]
   },
   leg: {
     name: '腿日',
     exercises: [
-      { id: 'leg_run', name: '跑步機暖身', target: '坡度 12 / 速度 5.0 / 10 分鐘（腿日降量）', defaultWeight: 0, defaultReps: 10, defaultSets: 1, unit: '分鐘' },
-      { id: 'leg_press', name: '倒蹬機（3種踩法）', target: '3 組 × 15 次', defaultWeight: 7.5, defaultReps: 15, defaultSets: 3, unit: 'kg槓片' },
-      { id: 'leg_curl', name: '大腿後勾機 🆕', target: '3 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 3, new: true },
-      { id: 'leg_hipthrust', name: '臀推機 🆕', target: '3 組 × 12 次', defaultWeight: 25, defaultReps: 12, defaultSets: 3, new: true },
-      { id: 'leg_kickback', name: 'SHUA 臀後踢機', target: '3 組 × 15 次（每邊）', defaultWeight: 20, defaultReps: 15, defaultSets: 3 },
-      { id: 'leg_hip', name: '髖內外展機', target: '3 組 × 15 次', defaultWeight: 0, defaultReps: 15, defaultSets: 3 },
-      { id: 'leg_abs', name: '腹部捲體機', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4 }
+      { id: 'leg_run', name: '跑步機暖身', type: 'cardio', target: '坡度 12 / 速度 5.0 / 10 分鐘（腿日降量）', defaultIncline: 12, defaultSpeed: 5.0, defaultMinutes: 10 },
+      { id: 'leg_press', name: '倒蹬機（3種踩法）', type: 'weight', target: '3 組 × 15 次', defaultWeight: 7.5, defaultReps: 15, defaultSets: 3, unit: 'kg槓片' },
+      { id: 'leg_curl', name: '大腿後勾機 🆕', type: 'weight', target: '3 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 3, unit: 'kg', new: true },
+      { id: 'leg_hipthrust', name: '臀推機 🆕', type: 'weight', target: '3 組 × 12 次', defaultWeight: 25, defaultReps: 12, defaultSets: 3, unit: 'kg', new: true },
+      { id: 'leg_kickback', name: 'SHUA 臀後踢機', type: 'weight', target: '3 組 × 15 次（每邊）', defaultWeight: 20, defaultReps: 15, defaultSets: 3, unit: 'kg' },
+      { id: 'leg_hip', name: '髖內外展機', type: 'weight', target: '3 組 × 15 次', defaultWeight: 0, defaultReps: 15, defaultSets: 3, unit: 'kg' },
+      { id: 'leg_abs', name: '腹部捲體機', type: 'weight', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4, unit: 'kg' }
     ]
   },
   shoulder: {
     name: '肩日',
     exercises: [
-      { id: 'sh_run', name: '跑步機暖身', target: '坡度 12 / 速度 5.0 / 20 分鐘', defaultWeight: 0, defaultReps: 20, defaultSets: 1, unit: '分鐘' },
-      { id: 'sh_press', name: '坐姿肩推機', target: '4 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 4 },
-      { id: 'sh_lateral', name: '坐姿側平舉', target: '4 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 4 },
-      { id: 'sh_rear', name: '反向飛鳥（朝內坐）🆕', target: '3 組 × 12 次', defaultWeight: 11.5, defaultReps: 12, defaultSets: 3, new: true },
-      { id: 'sh_tri', name: 'SHUA 三頭肌訓練器', target: '4 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 4 },
-      { id: 'sh_abs', name: '腹部捲體機', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4 }
+      { id: 'sh_run', name: '跑步機暖身', type: 'cardio', target: '坡度 12 / 速度 5.0 / 20 分鐘', defaultIncline: 12, defaultSpeed: 5.0, defaultMinutes: 20 },
+      { id: 'sh_press', name: '坐姿肩推機', type: 'weight', target: '4 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 4, unit: 'kg' },
+      { id: 'sh_lateral', name: '坐姿側平舉', type: 'weight', target: '4 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 4, unit: 'kg' },
+      { id: 'sh_rear', name: '反向飛鳥（朝內坐）🆕', type: 'weight', target: '3 組 × 12 次', defaultWeight: 11.5, defaultReps: 12, defaultSets: 3, unit: 'kg', new: true },
+      { id: 'sh_tri', name: 'SHUA 三頭肌訓練器', type: 'weight', target: '4 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 4, unit: 'kg' },
+      { id: 'sh_abs', name: '腹部捲體機', type: 'weight', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4, unit: 'kg' }
     ]
   },
   back: {
     name: '背日',
     exercises: [
-      { id: 'bk_run', name: '跑步機暖身', target: '坡度 12 / 速度 5.0 / 20 分鐘', defaultWeight: 0, defaultReps: 20, defaultSets: 1, unit: '分鐘' },
-      { id: 'bk_lat_wide', name: '滑輪下拉（正握寬握）', target: '4 組 × 12 次', defaultWeight: 20, defaultReps: 12, defaultSets: 4 },
-      { id: 'bk_lat_narrow', name: '滑輪下拉（反握窄握）', target: '4 組 × 12 次', defaultWeight: 20, defaultReps: 12, defaultSets: 4 },
-      { id: 'bk_row', name: '低拉訓練器（坐姿划船）', target: '4 組 × 12 次', defaultWeight: 25, defaultReps: 12, defaultSets: 4 },
-      { id: 'bk_tbar', name: '俯臥拉背機 🆕', target: '3 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 3, new: true },
-      { id: 'bk_facepull', name: 'Cable 臉拉 🆕', target: '3 組 × 15 次（重感受不重重量）', defaultWeight: 10, defaultReps: 15, defaultSets: 3, new: true },
-      { id: 'bk_curl', name: '二頭彎舉（器械式）🆕', target: '3 組 × 12 次', defaultWeight: 10, defaultReps: 12, defaultSets: 3, new: true },
-      { id: 'bk_abs', name: '腹部捲體機', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4 }
+      { id: 'bk_run', name: '跑步機暖身', type: 'cardio', target: '坡度 12 / 速度 5.0 / 20 分鐘', defaultIncline: 12, defaultSpeed: 5.0, defaultMinutes: 20 },
+      { id: 'bk_lat_wide', name: '滑輪下拉（正握寬握）', type: 'weight', target: '4 組 × 12 次', defaultWeight: 20, defaultReps: 12, defaultSets: 4, unit: 'kg' },
+      { id: 'bk_lat_narrow', name: '滑輪下拉（反握窄握）', type: 'weight', target: '4 組 × 12 次', defaultWeight: 20, defaultReps: 12, defaultSets: 4, unit: 'kg' },
+      { id: 'bk_row', name: '低拉訓練器（坐姿划船）', type: 'weight', target: '4 組 × 12 次｜拉到肚臍下方、肩胛夾緊', defaultWeight: 20, defaultReps: 12, defaultSets: 4, unit: 'kg' },
+      { id: 'bk_tbar', name: '俯臥拉背機 🆕', type: 'weight', target: '3 組 × 12 次｜手肘夾向身體', defaultWeight: 15, defaultReps: 12, defaultSets: 3, unit: 'kg', new: true },
+      { id: 'bk_facepull', name: 'Cable 臉拉 🆕', type: 'weight', target: '3 組 × 15 次（重感受不重重量）', defaultWeight: 10, defaultReps: 15, defaultSets: 3, unit: 'kg', new: true },
+      { id: 'bk_curl', name: '二頭彎舉（器械式）🆕', type: 'weight', target: '3 組 × 12 次', defaultWeight: 10, defaultReps: 12, defaultSets: 3, unit: 'kg', new: true },
+      { id: 'bk_abs', name: '腹部捲體機', type: 'weight', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4, unit: 'kg' }
     ]
   }
 };
@@ -1206,6 +1207,43 @@ function renderWorkout() {
     const log = todayLog[ex.id];
     const lastLog = findLastLog(ex.id);
     
+    // 跑步機（有氧）卡片
+    if (ex.type === 'cardio') {
+      return `
+        <div class="exercise-card ${log ? 'completed' : ''}" id="card-${ex.id}">
+          <div class="exercise-header">
+            <div>
+              <div class="exercise-name">${ex.name}<span class="exercise-tag">有氧</span></div>
+              <div class="exercise-target">目標：${ex.target}</div>
+            </div>
+          </div>
+          ${lastLog ? `
+            <div class="last-time">
+              上次（${formatDate(lastLog.date)}）：坡度 ${lastLog.incline} / 速度 ${lastLog.speed} / ${lastLog.minutes} 分鐘
+            </div>
+          ` : '<div class="last-time empty">尚無紀錄</div>'}
+          <div class="input-row">
+            <div class="input-group">
+              <label class="input-label">坡度</label>
+              <input class="input-field" type="number" step="1" id="incline-${ex.id}" value="${log ? log.incline : ex.defaultIncline}">
+            </div>
+            <div class="input-group">
+              <label class="input-label">速度</label>
+              <input class="input-field" type="number" step="0.1" id="speed-${ex.id}" value="${log ? log.speed : ex.defaultSpeed}">
+            </div>
+            <div class="input-group">
+              <label class="input-label">時間(分)</label>
+              <input class="input-field" type="number" step="1" id="minutes-${ex.id}" value="${log ? log.minutes : ex.defaultMinutes}">
+            </div>
+          </div>
+          <button class="save-btn ${log ? 'done' : ''}" onclick="saveCardio('${ex.id}')">
+            ${log ? '✓ 已完成' : '儲存'}
+          </button>
+        </div>
+      `;
+    }
+    
+    // 重訓卡片
     return `
       <div class="exercise-card ${log ? 'completed' : ''}" id="card-${ex.id}">
         <div class="exercise-header">
@@ -1279,10 +1317,25 @@ function saveExercise(exId) {
   // 檢查是否是 PR
   const isPR = checkPR(exId, weight);
   
-  workoutLogs[today][exId] = { weight, reps, sets, feel };
+  workoutLogs[today][exId] = { type: 'weight', weight, reps, sets, feel };
   STORAGE.set('workoutLogs', workoutLogs);
   
   showToast(isPR ? `🔥 新紀錄 PR！` : '✓ 已儲存');
+  renderWorkout();
+}
+
+function saveCardio(exId) {
+  const today = todayKey();
+  if (!workoutLogs[today]) workoutLogs[today] = {};
+  
+  const incline = parseFloat(document.getElementById(`incline-${exId}`).value) || 0;
+  const speed = parseFloat(document.getElementById(`speed-${exId}`).value) || 0;
+  const minutes = parseInt(document.getElementById(`minutes-${exId}`).value) || 0;
+  
+  workoutLogs[today][exId] = { type: 'cardio', incline, speed, minutes };
+  STORAGE.set('workoutLogs', workoutLogs);
+  
+  showToast('✓ 已儲存');
   renderWorkout();
 }
 
@@ -1315,10 +1368,11 @@ function renderProgress() {
   // 各動作進步圖
   const progressDiv = document.getElementById('exerciseProgress');
   
-  // 收集每個動作的歷史
+  // 收集每個動作的歷史（只算重訓，跑步機不畫重量圖）
   const exerciseHistory = {};
   Object.keys(workoutLogs).sort().forEach(date => {
     Object.entries(workoutLogs[date]).forEach(([exId, log]) => {
+      if (log.type === 'cardio') return; // 跑步機跳過
       if (!exerciseHistory[exId]) exerciseHistory[exId] = [];
       exerciseHistory[exId].push({ date, weight: log.weight });
     });
@@ -1717,9 +1771,13 @@ function exportWeekly() {
         const ex = exMeta[id];
         const l = log[id];
         if (!ex) return;
-        const unit = ex.unit || 'kg';
-        const feelMap = ['', '無感', '輕鬆', '剛好', '吃力', '爆酸'];
-        text += `• ${ex.name}：${l.weight}${unit} × ${l.reps} × ${l.sets}組｜感受${l.feel}(${feelMap[l.feel]})\n`;
+        if (l.type === 'cardio') {
+          text += `• ${ex.name}：坡度 ${l.incline} / 速度 ${l.speed} / ${l.minutes} 分鐘\n`;
+        } else {
+          const unit = ex.unit || 'kg';
+          const feelMap = ['', '無感', '輕鬆', '剛好', '吃力', '爆酸'];
+          text += `• ${ex.name}：${l.weight}${unit} × ${l.reps} × ${l.sets}組｜感受${l.feel}(${feelMap[l.feel]})\n`;
+        }
       });
       text += `\n`;
     });
@@ -1749,16 +1807,18 @@ function exportWeekly() {
   
   if (lastWeekLogs.length > 0 && weekLogs.length > 0) {
     text += `━━ 與上週比較 ━━\n`;
-    // 找各動作本週最大重量 vs 上週最大重量
+    // 找各動作本週最大重量 vs 上週最大重量（跑步機跳過）
     const thisWeekMax = {};
     const lastWeekMax = {};
     weekLogs.forEach(d => {
       Object.entries(workoutLogs[d]).forEach(([id, l]) => {
+        if (l.type === 'cardio') return;
         if (!thisWeekMax[id] || l.weight > thisWeekMax[id]) thisWeekMax[id] = l.weight;
       });
     });
     lastWeekLogs.forEach(d => {
       Object.entries(workoutLogs[d]).forEach(([id, l]) => {
+        if (l.type === 'cardio') return;
         if (!lastWeekMax[id] || l.weight > lastWeekMax[id]) lastWeekMax[id] = l.weight;
       });
     });
