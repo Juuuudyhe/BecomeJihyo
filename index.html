@@ -1187,11 +1187,14 @@ const MENU = {
     name: '腿日',
     exercises: [
       { id: 'leg_run', name: '跑步機暖身', type: 'cardio', target: '坡度 12 / 速度 5.0 / 10 分鐘（腿日降量）', defaultIncline: 12, defaultSpeed: 5.0, defaultMinutes: 10 },
-      { id: 'leg_press', name: '倒蹬機（3種踩法）', type: 'weight', target: '3 組 × 15 次', defaultWeight: 7.5, defaultReps: 15, defaultSets: 3, unit: 'kg槓片' },
+      { id: 'leg_press_1', name: '倒蹬機 ① 併腿・踩上方', type: 'weight', target: '3 組 × 15 次｜偏臀+腿後', defaultWeight: 7.5, defaultReps: 15, defaultSets: 3, unit: '單邊kg' },
+      { id: 'leg_press_2', name: '倒蹬機 ② 打開・踩上方', type: 'weight', target: '3 組 × 15 次｜偏臀+大腿內側', defaultWeight: 7.5, defaultReps: 15, defaultSets: 3, unit: '單邊kg' },
+      { id: 'leg_press_3', name: '倒蹬機 ③ 打開・踩中間・腳尖朝前', type: 'weight', target: '3 組 × 15 次｜股四頭+臀平均', defaultWeight: 7.5, defaultReps: 15, defaultSets: 3, unit: '單邊kg' },
       { id: 'leg_curl', name: '大腿後勾機 🆕', type: 'weight', target: '3 組 × 12 次', defaultWeight: 15, defaultReps: 12, defaultSets: 3, unit: 'kg', new: true },
       { id: 'leg_hipthrust', name: '臀推機 🆕', type: 'weight', target: '3 組 × 12 次', defaultWeight: 25, defaultReps: 12, defaultSets: 3, unit: 'kg', new: true },
       { id: 'leg_kickback', name: 'SHUA 臀後踢機', type: 'weight', target: '3 組 × 15 次（每邊）', defaultWeight: 20, defaultReps: 15, defaultSets: 3, unit: 'kg' },
-      { id: 'leg_hip', name: '髖內外展機', type: 'weight', target: '3 組 × 15 次', defaultWeight: 0, defaultReps: 15, defaultSets: 3, unit: 'kg' },
+      { id: 'leg_abduction', name: '髖外展機（往外打開）', type: 'weight', target: '3 組 × 15 次｜臀中肌・改善大轉子', defaultWeight: 0, defaultReps: 15, defaultSets: 3, unit: 'kg' },
+      { id: 'leg_adduction', name: '髖內收機（往內夾）', type: 'weight', target: '3 組 × 15 次｜大腿內側', defaultWeight: 0, defaultReps: 15, defaultSets: 3, unit: 'kg' },
       { id: 'leg_abs', name: '腹部捲體機', type: 'weight', target: '4 組 × 12 次', defaultWeight: 35, defaultReps: 12, defaultSets: 4, unit: 'kg' }
     ]
   },
